@@ -18,6 +18,6 @@ app.get('/api/:id/:Nkey',(req,res)=>{
 ```
 執行 http://127.0.0.1:3000/API/123/OBI-159-app-874
 說明 :
->req.url 取得 /API/123/OBI-159-app-874 路徑
->req.params 取得 /API 的參數 :id , :nKey
->RESTful 概念
+* req.url 取得 /API/123/OBI-159-app-874 路徑
+* req.params 取得 /API 的參數 :id , :nKey
+* RESTful 概念
