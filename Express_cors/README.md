@@ -26,3 +26,5 @@ var app = express();
 
 app.use(cors());
 ```
+
+參考網址 ： https://developer.mozilla.org/zh-TW/docs/Web/HTTP/CORS
