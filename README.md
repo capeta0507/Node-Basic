@@ -1,5 +1,5 @@
 # Node-Basic
-### <font color="blue">資料夾 http_service</font>
+### 資料夾 http_service
 用Node http建立一個基本服務
 
 ### 資料夾 Express_server
@@ -16,5 +16,3 @@ RESTful GET 後端/前端 的組合
 
 ### 資料夾 Express_RESTful_POST
 RESTful POST 後端/postman/前端 的組合
-
-<font color=#0099ff size=7 face="黑体">color=#0099ff size=72 face="黑体"</font>
