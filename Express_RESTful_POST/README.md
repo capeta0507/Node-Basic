@@ -18,7 +18,8 @@ app.post('/joinus',urlencodedParser,(req,res) =>{
     }
 })
 ```
-postman 測試方法
+### postman 測試方法
+
 ![](wwwroot/postman_1.png)
 
 ### 前端相對應網頁Joinus_form.html
