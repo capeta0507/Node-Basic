@@ -16,27 +16,32 @@
     }
 </style>
 <body>
-    <form action="/api" method="GET">
+    <form id="getApi">
         ID: <input id="id" type="text" name="id"> <br>
         NKEY: <input id="Nkey" type="text" name="Nkey"> <br>
         <input id="apiClick" type="button" value="送出"">
         <br>
-        <div id="result">
-
-        </div>
     </form>
+    <div id="result"></div>
     <script>
+        // html網頁ready
         $(document).ready(function(){
+            // 啟用api click方法
             $("#apiClick").click((e) => {
+                // 不回應表單submit
                 e.preventDefault();
-                console.log("call api");
+                // console.log("call api");
+                // 取得input內容
                 let myid = $("#id").val();
                 let myNkey = $("#Nkey").val();
-                console.log("call", myid, myNkey);
+                // console.log("call", myid, myNkey);
+                // 用ajax呼叫api路徑
                 $.ajax({
+                    type:"GET",
                     url:"/api/" + myid + "/" + myNkey,
                     success:(result) => {
-                        console.log(result);
+                        // 顯示回應結果
+                        // console.log(result);
                         $("#result").html(result);
                     }
                 })
