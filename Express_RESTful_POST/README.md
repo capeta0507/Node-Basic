@@ -34,7 +34,7 @@ app.post('/joinus',urlencodedParser,(req,res) =>{
 
 ---
 
-### POST body x-www-form-urlencoded
+### POST body raw JSON
 server端的程式碼
 ```javascript=
 // POST 參數
