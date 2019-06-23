@@ -47,5 +47,37 @@ app.get('/api/:id/:Nkey',(req,res)=>{
     res.end();
 })
 
+// GET 參數
+// http://127.0.0.1:3000/sayhello?name=David&email=davidtpe@seed.net.tw
+var url = require('url');
+app.get('/sayhello',(req,res)=>{
+    // 方法1 , url parse 不建議用此方法
+    var q = url.parse(req.url,true).query;
+    console.log(q);
+    
+    // 方法2 , req.query
+    let myReq = req.query;
+    res.json(myReq); 
+    // res.writeHead(200,{'Content-Type':'text/html;charset=utf-8'});
+    // res.write('url.parse eMail : ' + q.email + '</br></br>');
+    // res.write('name : ' + myReq.name + '</br>');
+    // res.write('eMail : ' + myReq.email + '</br>');
+    // res.end();
+})
+
+// 路由/:參數 + GET 參數
+// http://127.0.0.1:3000/saygoodbye/davidTPE?msg=GoodBYe
+app.get('/saygoodbye/:name',(req,res)=>{
+    let myParams = req.params;
+    let myQuery = req.query;
+    let myResp = [];
+    myResp.push(myParams);
+    myResp.push(myQuery);
+    // res.json(myParams);
+    // res.json(myQuery);
+    res.json(myResp);
+    res.end();
+})
+
 app.listen(PORT, HOST);
 console.log(`Running on http://${HOST}:${PORT}`);
