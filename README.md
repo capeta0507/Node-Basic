@@ -16,5 +16,3 @@ RESTful GET 後端/前端 的組合
 
 ### 資料夾 Express_RESTful_POST
 RESTful POST 後端/postman/前端 的組合
-
-<font color="red">字體顏色</font>
