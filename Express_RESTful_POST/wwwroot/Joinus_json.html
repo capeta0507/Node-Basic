@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<style>
+    #result {
+        /* border: 1px solid yellow; */
+        background: pink;
+        margin-top: 10px;
+        padding: 10px;
+    }
+</style>
+<body>
+    <form>
+        Name: <input id="name" type="text" name="name"> <br>
+        Email: <input id="email" type="email" name="email"> <br>
+        AGE: <input id="age" type="text" name="age"> <br>
+        <input id="jsonClick" type="button" value="送出">
+    </form>
+    <div id="result"></div>
+</body>
+<script>
+    // html網頁ready
+    $(document).ready(function(){
+            // 啟用api click方法
+            $("#jsonClick").click((e) => {
+                // 不回應表單submit
+                e.preventDefault();
+                // console.log("call api");
+                // 取得input內容
+                let myname = $("#name").val();
+                let myemail = $("#email").val();
+                let myage = $("#age").val();
+                // console.log("call", myname, myemail, myage);
+                var myData = {
+                    "name" : myname,
+                    "email" : myemail,
+                    "age" : myage
+                }
+                // console.log("json", myData);
+                // 用ajax呼叫api路徑
+                $.ajax('/register',{
+                    type:"POST",
+                    data:JSON.stringify(myData),
+                    dataType:"json",
+                    contentType: "application/json",
+                    success: (data,status) => {
+                        // console.log(data);
+                        // console.log(status);
+                        let myhtml = data.name + '<br>' + data.email + '<br>' + data.age
+                        $("#result").html(myhtml);
+                    },
+                    error:(error) => {
+                        console.log(error);
+                    }
+                });
+            });
+        });
+</script>
+</html>
